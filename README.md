@@ -1,23 +1,32 @@
-# LibraryHub Modern — free static deployment
+# LibraryHub Modern
 
-Modern React + TypeScript + Vite library manager. Uses browser `localStorage`; no database, backend, Docker, or paid API is required.
-
-## GitHub structure
-
-The repository root must contain `package.json`, `index.html`, `vite.config.ts`, `tsconfig.app.json`, and a `src/` folder containing `App.tsx`, `main.tsx`, and `styles.css`.
+A free, local-first library management frontend built with React, TypeScript, Vite, Recharts, and browser localStorage. No database, Docker, or paid API is required.
 
 ## Deploy on Render Static Site
 
-- Root Directory: leave blank
-- Build Command: `npm install && npm run build`
-- Publish Directory: `dist`
-- Environment variables: none required
+- **Root Directory:** leave blank
+- **Build Command:** `npm install && npm run build`
+- **Publish Directory:** `dist`
+- **Environment variables:** none required
 
-The included `render.yaml` describes these settings.
+Every push to `main` should trigger a new deploy if Auto-Deploy is enabled.
+
+## Features
+
+- Demo login screen (password: `library123`; not secure authentication)
+- Dashboard statistics, category chart, and available/issued chart
+- Add, edit, search, issue, return, and delete books
+- Member registration, edit, search, and removal
+- Prevents member removal while they have books on loan
+- Due dates and automatically calculated overdue warnings
+- Book cover image URLs with a fallback when an image cannot load
+- Light/dark theme preference
+- Full JSON backup and restore for books, members, and theme
+- Responsive layout for desktop and mobile
 
 ## Run locally on Windows
 
-Install Node.js LTS, open Command Prompt in the project folder, then run:
+Install Node.js, open Command Prompt in the project folder, then run:
 
 ```bash
 npm install
@@ -26,23 +35,8 @@ npm run dev
 
 Open the local URL printed by Vite.
 
-## Features
+## Important limitations
 
-- Dashboard statistics and category/availability charts
-- Add, edit, search, issue, return, and delete books
-- Member management
-- Due dates and overdue indicators
-- Book cover images via URL or local upload
-- Light/dark mode
-- JSON export and restore of books, members, and theme
-- Browser localStorage persistence
+This is a **frontend-only, local-first edition**, not a secure multi-user library service. Records are stored in the current browser profile and do not synchronize between visitors or devices. Clearing browser/site data can erase records. Export JSON backups regularly and store them outside the browser. Restoring replaces the current browser records, so export a backup first.
 
-## Demo login
-
-Default password: `library123`. The username is only a display label. This is not secure authentication.
-
-## Important data limitations
-
-Data is stored only in the current browser profile and is not shared across devices or visitors. Clearing browser/site data can erase records. Export JSON backups regularly and keep copies outside the browser. Restoring a backup replaces current records, so export first. Uploaded images consume browser storage; keep them small.
-
-This is a front-end demo, not suitable for sensitive member data or real multi-user access control. Render's free plan and limits can change; check its current terms.
+The demo login is only a client-side screen and must not be used to protect sensitive information. Do not store sensitive member information in this version. Uploaded cover URLs rely on the remote image host being available. A production multi-user system needs a backend, persistent database, and server-side authentication.
