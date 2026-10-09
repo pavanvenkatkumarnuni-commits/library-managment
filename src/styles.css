@@ -60,3 +60,53 @@ th:last-child,td:last-child{padding-right:18px}
 .primary,.secondary{min-height:36px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:700;white-space:nowrap;transition:transform .15s ease,box-shadow .15s ease}
 .primary:hover,.secondary:hover{transform:translateY(-1px);box-shadow:0 5px 14px #1e376b12}
 @media(max-width:780px){.table-scroll{border-radius:9px}tbody td{height:70px;padding:10px 11px}thead th{padding:0 11px}.book{min-width:190px}.cover{width:36px;height:48px;flex-basis:36px;min-width:36px}}
+
+/* LibraryHub functional workflow additions */
+.cover{flex:0 0 48px;width:48px;height:58px;overflow:hidden;background:#edf3ff;color:#3477ee}
+.cover img{display:block;width:100%;height:100%;object-fit:cover}
+.due-overdue{color:#d33b4a!important;font-weight:800}
+.overdue-count{background:#ffe8eb!important;color:#c93445!important}
+.header-actions{display:flex;align-items:center;gap:13px}
+.icon-button{width:34px;height:34px;border:1px solid #e2e8f1;border-radius:8px;background:#fff;color:#65748b;display:grid;place-items:center}
+.charts{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin:0 0 20px}
+.chart-panel{padding:20px;min-width:0}
+.chart-panel h2{display:flex;align-items:center;gap:8px;font-size:13px;margin:0 0 15px}
+.chart{height:240px;width:100%;min-width:0}
+.chart-legend{display:flex;justify-content:center;gap:18px;color:#748198;font-size:11px}
+.warning-banner{display:flex;align-items:center;gap:13px;width:100%;padding:14px 17px;margin:0 0 20px;border:1px solid #ffd9a8;border-radius:10px;background:#fff8ec;color:#b56a12;text-align:left}
+.warning-banner span:nth-child(2){display:flex;flex-direction:column;gap:4px;flex:1}
+.warning-banner small{font-size:11px;color:#97764a}
+.warning-banner span:last-child{font-size:11px;font-weight:800}
+.member-cell{display:flex;align-items:center;gap:10px;color:#344156}
+.avatar{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:#eaf1ff;color:#3477ee;font-weight:800;font-size:12px}
+.login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at top left,#e7efff,transparent 50%),#f5f7fb;color:#263246}
+.login-card{width:min(410px,100%);padding:34px;background:#fff;border:1px solid #e7ecf4;border-radius:18px;box-shadow:0 20px 60px #23385d12;display:flex;flex-direction:column;gap:14px}
+.login-card .brand-icon{margin-bottom:5px}
+.login-card h1{font-size:25px;letter-spacing:-.8px;margin:0}
+.login-card .sub{line-height:1.6;margin:0 0 8px}
+.login-card label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#59677b;font-weight:700}
+.login-card input{height:42px;padding:0 12px;border:1px solid #e0e6ef;border-radius:8px;background:white;color:#263246}
+.full{width:100%;height:42px;margin-top:5px}
+.login-card>small{font-size:10px;color:#929daf;text-align:center;margin-top:4px}
+.dark{background:#111827;color:#e5eaf3;color-scheme:dark}
+.dark .sidebar,.dark header,.dark .panel,.dark .modal,.dark .login-card{background:#182235;border-color:#2b384e;color:#e5eaf3}
+.dark main,.dark .content{background:#111827}
+.dark .brand b,.dark .intro h1,.dark .panel-title h2,.dark .chart-panel h2,.dark .summary h3,.dark .backup h3,.dark .book b,.dark .borrower b,.dark .member-cell{color:#e5eaf3}
+.dark .nav{color:#a9b5c8}
+.dark .nav.selected{background:#243958;color:#8db7ff}
+.dark .sidebar-tip{background:#1c2a41;border-color:#2b3d5c}
+.dark .sidebar-tip b{color:#dbe5f5}
+.dark .search,.dark .filters select,.dark .secondary,.dark .icon-button,.dark .actions button{background:#1b293e;border-color:#35435a;color:#c6d0df}
+.dark .search input,.dark .fields input,.dark .fields select,.dark .login-card input{background:#111827;border-color:#35435a;color:#e5eaf3}
+.dark thead{background:#1b293e}
+.dark th,.dark td{border-color:#2b384e}
+.dark td,.dark .sub,.dark .panel-title p,.dark .summary>p,.dark .backup p,.dark .table-foot,.dark footer,.dark .book small,.dark .borrower small{color:#9eacc0}
+.dark .category{background:#202d42;border-color:#35435a;color:#bdc9db}
+.dark .status.available{background:#123b35;color:#72e0b6}
+.dark .status.issued{background:#49351d;color:#f6c27a}
+.dark .bar{background:#2b384e}
+.dark .modal-head,.dark .modal-actions{border-color:#2b384e}
+.dark .fields label,.dark .login-card label{color:#c3cede}
+.dark .login-screen{background:radial-gradient(ellipse at top left,#24395b,transparent 50%),#111827;color:#e5eaf3}
+@media(max-width:900px){.charts{grid-template-columns:1fr}.chart{height:220px}}
+@media(max-width:780px){.header-actions{gap:7px}.charts{grid-template-columns:1fr}.chart-panel{padding:15px}.warning-banner{align-items:flex-start}.warning-banner span:last-child{display:none}}
