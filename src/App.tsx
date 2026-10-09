@@ -603,6 +603,7 @@ export default function App(){
  const [books,setBooks]=useState<Book[]>(()=>read(BOOKS_KEY,[]));
  useEffect(()=>{try{if(localStorage.getItem(CATALOG_SEED_KEY)!=='yes'){const current=read<Book[]>(BOOKS_KEY,[]);const known=new Set(current.map(b=>b.id));const seeded=expandedSampleBooks.filter(b=>!known.has(b.id));if(current.length===0){setBooks(expandedSampleBooks);}else if(seeded.length){setBooks([...current,...seeded]);}localStorage.setItem(CATALOG_SEED_KEY,'yes');}}catch{}},[]);
  const [members,setMembers]=useState<Member[]>(()=>read(MEMBERS_KEY,[]));
+ useEffect(()=>{try{if(localStorage.getItem('libraryhub.repair-orphan-loans.v1')==='yes')return;const currentBooks=read<Book[]>(BOOKS_KEY,[]);const currentMembers=read<Member[]>(MEMBERS_KEY,[]);const memberIds=new Set(currentMembers.map(m=>m.id));const repaired=currentBooks.map(b=>b.status==='Issued'&&(!b.memberId||!memberIds.has(b.memberId))?{...b,status:'Available' as Status,memberId:'',dueDate:''}:b);if(repaired.some((b,i)=>b!==currentBooks[i]))setBooks(repaired);localStorage.setItem('libraryhub.repair-orphan-loans.v1','yes');}catch{}},[]);
  const [dark,setDark]=useState<boolean>(()=>read(THEME_KEY,false));
  const [signedIn,setSignedIn]=useState<boolean>(()=>false);
  const [role,setRole]=useState<Role>(()=>read<Role>(ROLE_KEY,'Admin'));
