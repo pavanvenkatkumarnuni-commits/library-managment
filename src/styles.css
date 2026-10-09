@@ -27,3 +27,36 @@ td{border-color:var(--line);color:var(--muted)}
 @media(max-width:1100px){.member-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.analytics-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:780px){.welcome-banner{padding:22px;min-height:165px}.welcome-banner h2{font-size:20px}.banner-illustration{width:90px;height:90px;margin:0 6px 0 12px;flex-shrink:0}.banner-illustration>svg{width:48px}.analytics-grid{grid-template-columns:1fr}.member-grid{grid-template-columns:1fr;padding:10px 14px 18px}.due-row{grid-template-columns:34px minmax(80px,1fr) auto;padding:12px 14px}.due-row .secondary{grid-column:2/-1;justify-self:start}.header-actions{gap:7px}.badge{display:none}}
 @media(max-width:450px){.welcome-banner{align-items:flex-start}.banner-illustration{display:none}.welcome-banner h2{font-size:19px}.due-row{grid-template-columns:30px minmax(70px,1fr) auto;gap:8px}.due-row .due-late,.due-row .due-ok{font-size:9px}.login-card{padding:21px}}
+
+/* Layout polish: keep cover images inside their thumbnail cells */
+.cover{flex:0 0 38px;width:38px;height:50px;min-width:38px;overflow:hidden;position:relative;border-radius:5px;background:linear-gradient(145deg,#dce8ff,#9ab7f5);box-shadow:0 2px 5px #142b5014}
+.cover img{display:block!important;visibility:visible!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:cover;object-position:center;position:absolute;inset:0;border-radius:5px}
+.book{display:flex;align-items:center;gap:12px;min-width:205px;max-width:100%;white-space:normal}
+.book>span:last-child{min-width:0;display:block}
+.book b{display:block;font-size:12px;line-height:1.45;max-width:220px;white-space:normal;overflow-wrap:anywhere}
+.book small{display:block;font-size:10px;line-height:1.4;max-width:220px;white-space:normal;overflow:hidden;text-overflow:ellipsis}
+.table-scroll{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow-x:auto;overscroll-behavior-x:contain}
+table{min-width:940px;width:100%;border-collapse:separate;border-spacing:0;table-layout:auto}
+thead th{position:sticky;top:0;z-index:1;background:var(--page);height:44px;padding:0 14px;font-size:9px;letter-spacing:.8px;font-weight:800;white-space:nowrap}
+tbody td{height:78px;padding:12px 14px;vertical-align:middle;border-bottom:1px solid var(--line);font-size:11px;white-space:normal}
+tbody tr:last-child td{border-bottom:0}
+tbody tr{transition:background .15s ease}
+tbody tr:hover{background:color-mix(in srgb,var(--page) 65%,var(--surface))}
+th:first-child,td:first-child{padding-left:18px}
+th:last-child,td:last-child{padding-right:18px}
+.category{display:inline-flex;align-items:center;max-width:150px;padding:5px 8px;border-radius:7px;font-size:10px;line-height:1.35;white-space:normal}
+.status{display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:7px;font-size:10px;font-weight:800;white-space:nowrap}
+.borrower{display:flex;flex-direction:column;gap:5px;min-width:105px}
+.borrower b{font-size:11px;line-height:1.4;white-space:normal}
+.borrower small{font-size:10px;line-height:1.4;white-space:normal}
+.actions{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.actions button{flex:0 0 34px;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:inline-grid;place-items:center;background:var(--surface);color:var(--muted);transition:all .15s ease}
+.actions button:hover{color:#3477ee;border-color:#9bbcff;background:#f3f7ff}
+:root[data-theme="dark"] .actions button:hover{background:#1c2b43}
+.panel{min-width:0;overflow:hidden}
+.filters{flex-wrap:wrap;align-items:center}
+.filters .search{flex:1 1 260px;min-width:180px}
+.filters select{min-height:38px;border:1px solid var(--line);border-radius:9px;padding:0 12px}
+.primary,.secondary{min-height:36px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:700;white-space:nowrap;transition:transform .15s ease,box-shadow .15s ease}
+.primary:hover,.secondary:hover{transform:translateY(-1px);box-shadow:0 5px 14px #1e376b12}
+@media(max-width:780px){.table-scroll{border-radius:9px}tbody td{height:70px;padding:10px 11px}thead th{padding:0 11px}.book{min-width:190px}.cover{width:36px;height:48px;flex-basis:36px;min-width:36px}}
