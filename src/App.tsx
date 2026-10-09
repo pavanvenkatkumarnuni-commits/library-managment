@@ -16,6 +16,580 @@ const sampleBooks:Book[]=[
 {id:'b3',title:'Ikigai',author:'Héctor García & Francesc Miralles',isbn:'9780143130727',category:'Lifestyle',status:'Available',memberId:'',dueDate:'',coverUrl:'https://covers.openlibrary.org/b/isbn/9780143130727-M.jpg'},
 {id:'b4',title:'Clean Code',author:'Robert C. Martin',isbn:'9780132350884',category:'Technology',status:'Available',memberId:'',dueDate:'',coverUrl:'https://covers.openlibrary.org/b/isbn/9780132350884-M.jpg'},
 {id:'b5',title:'Wings of Fire',author:'A. P. J. Abdul Kalam',isbn:'9788173711466',category:'Biography',status:'Issued',memberId:'m2',dueDate:'2026-10-14',coverUrl:'https://covers.openlibrary.org/b/isbn/9788173711466-M.jpg'}];
+const additionalBookData:[string,string,string,string][]=[
+  [
+    "The Great Gatsby",
+    "F. Scott Fitzgerald",
+    "9780743273565",
+    "Fiction"
+  ],
+  [
+    "To Kill a Mockingbird",
+    "Harper Lee",
+    "9780060935467",
+    "Fiction"
+  ],
+  [
+    "1984",
+    "George Orwell",
+    "9780451524935",
+    "Fiction"
+  ],
+  [
+    "Pride and Prejudice",
+    "Jane Austen",
+    "9780141439518",
+    "Fiction"
+  ],
+  [
+    "The Catcher in the Rye",
+    "J. D. Salinger",
+    "9780316769488",
+    "Fiction"
+  ],
+  [
+    "The Hobbit",
+    "J. R. R. Tolkien",
+    "9780547928227",
+    "Fantasy"
+  ],
+  [
+    "The Lord of the Rings",
+    "J. R. R. Tolkien",
+    "9780618640157",
+    "Fantasy"
+  ],
+  [
+    "Harry Potter and the Philosopher's Stone",
+    "J. K. Rowling",
+    "9780590353427",
+    "Fantasy"
+  ],
+  [
+    "The Book Thief",
+    "Markus Zusak",
+    "9780375842207",
+    "Fiction"
+  ],
+  [
+    "The Kite Runner",
+    "Khaled Hosseini",
+    "9781594631931",
+    "Fiction"
+  ],
+  [
+    "A Thousand Splendid Suns",
+    "Khaled Hosseini",
+    "9781594489501",
+    "Fiction"
+  ],
+  [
+    "The Midnight Library",
+    "Matt Haig",
+    "9780525559474",
+    "Fiction"
+  ],
+  [
+    "The Silent Patient",
+    "Alex Michaelides",
+    "9781250301697",
+    "Mystery"
+  ],
+  [
+    "And Then There Were None",
+    "Agatha Christie",
+    "9780062073488",
+    "Mystery"
+  ],
+  [
+    "Murder on the Orient Express",
+    "Agatha Christie",
+    "9780062693662",
+    "Mystery"
+  ],
+  [
+    "The Da Vinci Code",
+    "Dan Brown",
+    "9780307474278",
+    "Thriller"
+  ],
+  [
+    "Angels & Demons",
+    "Dan Brown",
+    "9780743493468",
+    "Thriller"
+  ],
+  [
+    "Dune",
+    "Frank Herbert",
+    "9780441172719",
+    "Science Fiction"
+  ],
+  [
+    "Fahrenheit 451",
+    "Ray Bradbury",
+    "9781451673319",
+    "Science Fiction"
+  ],
+  [
+    "The Martian",
+    "Andy Weir",
+    "9780553418026",
+    "Science Fiction"
+  ],
+  [
+    "Sapiens",
+    "Yuval Noah Harari",
+    "9780062316097",
+    "History"
+  ],
+  [
+    "Homo Deus",
+    "Yuval Noah Harari",
+    "9780062464316",
+    "History"
+  ],
+  [
+    "Educated",
+    "Tara Westover",
+    "9780399590504",
+    "Biography"
+  ],
+  [
+    "Steve Jobs",
+    "Walter Isaacson",
+    "9781451648539",
+    "Biography"
+  ],
+  [
+    "Long Walk to Freedom",
+    "Nelson Mandela",
+    "9780316548182",
+    "Biography"
+  ],
+  [
+    "Wings of Fire: An Autobiography",
+    "A. P. J. Abdul Kalam",
+    "9788173711466",
+    "Biography"
+  ],
+  [
+    "The Diary of a Young Girl",
+    "Anne Frank",
+    "9780553296983",
+    "Biography"
+  ],
+  [
+    "Man's Search for Meaning",
+    "Viktor E. Frankl",
+    "9780807014271",
+    "Psychology"
+  ],
+  [
+    "Thinking, Fast and Slow",
+    "Daniel Kahneman",
+    "9780374533557",
+    "Psychology"
+  ],
+  [
+    "Deep Work",
+    "Cal Newport",
+    "9781455586691",
+    "Self Development"
+  ],
+  [
+    "The 7 Habits of Highly Effective People",
+    "Stephen R. Covey",
+    "9781982137274",
+    "Self Development"
+  ],
+  [
+    "How to Win Friends and Influence People",
+    "Dale Carnegie",
+    "9780671027032",
+    "Self Development"
+  ],
+  [
+    "Mindset",
+    "Carol S. Dweck",
+    "9780345472328",
+    "Psychology"
+  ],
+  [
+    "Grit",
+    "Angela Duckworth",
+    "9781501111105",
+    "Psychology"
+  ],
+  [
+    "The Power of Now",
+    "Eckhart Tolle",
+    "9781577314806",
+    "Self Development"
+  ],
+  [
+    "Start with Why",
+    "Simon Sinek",
+    "9781591846444",
+    "Business"
+  ],
+  [
+    "Good to Great",
+    "Jim Collins",
+    "9780066620992",
+    "Business"
+  ],
+  [
+    "The Lean Startup",
+    "Eric Ries",
+    "9780307887894",
+    "Business"
+  ],
+  [
+    "Zero to One",
+    "Peter Thiel",
+    "9780804139298",
+    "Business"
+  ],
+  [
+    "The Psychology of Money",
+    "Morgan Housel",
+    "9780857197689",
+    "Finance"
+  ],
+  [
+    "Rich Dad Poor Dad",
+    "Robert T. Kiyosaki",
+    "9781612680194",
+    "Finance"
+  ],
+  [
+    "The Intelligent Investor",
+    "Benjamin Graham",
+    "9780060555665",
+    "Finance"
+  ],
+  [
+    "A Brief History of Time",
+    "Stephen Hawking",
+    "9780553380163",
+    "Science"
+  ],
+  [
+    "Cosmos",
+    "Carl Sagan",
+    "9780345539434",
+    "Science"
+  ],
+  [
+    "The Selfish Gene",
+    "Richard Dawkins",
+    "9780199291151",
+    "Science"
+  ],
+  [
+    "The Gene",
+    "Siddhartha Mukherjee",
+    "9781476733500",
+    "Science"
+  ],
+  [
+    "The Code Book",
+    "Simon Singh",
+    "9780385495325",
+    "Technology"
+  ],
+  [
+    "The Pragmatic Programmer",
+    "Andrew Hunt & David Thomas",
+    "9780135957059",
+    "Technology"
+  ],
+  [
+    "Design Patterns",
+    "Erich Gamma et al.",
+    "9780201633610",
+    "Technology"
+  ],
+  [
+    "Introduction to Algorithms",
+    "Thomas H. Cormen et al.",
+    "9780262046305",
+    "Technology"
+  ],
+  [
+    "Artificial Intelligence: A Modern Approach",
+    "Stuart Russell & Peter Norvig",
+    "9780134610993",
+    "Technology"
+  ],
+  [
+    "Computer Networking: A Top-Down Approach",
+    "James Kurose & Keith Ross",
+    "9780136681557",
+    "Technology"
+  ],
+  [
+    "Operating System Concepts",
+    "Abraham Silberschatz et al.",
+    "9781119800361",
+    "Technology"
+  ],
+  [
+    "Database System Concepts",
+    "Abraham Silberschatz et al.",
+    "9780078022159",
+    "Technology"
+  ],
+  [
+    "The Art of Computer Programming, Vol. 1",
+    "Donald E. Knuth",
+    "9780201896831",
+    "Technology"
+  ],
+  [
+    "Eloquent JavaScript",
+    "Marijn Haverbeke",
+    "9781593279509",
+    "Technology"
+  ],
+  [
+    "You Don't Know JS Yet",
+    "Kyle Simpson",
+    "9781098128732",
+    "Technology"
+  ],
+  [
+    "Learning Python",
+    "Mark Lutz",
+    "9781449355739",
+    "Technology"
+  ],
+  [
+    "Clean Architecture",
+    "Robert C. Martin",
+    "9780134494166",
+    "Technology"
+  ],
+  [
+    "Refactoring",
+    "Martin Fowler",
+    "9780134757599",
+    "Technology"
+  ],
+  [
+    "The Design of Everyday Things",
+    "Don Norman",
+    "9780465050659",
+    "Design"
+  ],
+  [
+    "Don't Make Me Think",
+    "Steve Krug",
+    "9780321965516",
+    "Design"
+  ],
+  [
+    "The Elements of Style",
+    "William Strunk Jr. & E. B. White",
+    "9780205309023",
+    "Writing"
+  ],
+  [
+    "On Writing",
+    "Stephen King",
+    "9781439156810",
+    "Writing"
+  ],
+  [
+    "The Oxford English Dictionary",
+    "Oxford University Press",
+    "9780198611868",
+    "Reference"
+  ],
+  [
+    "A Short History of Nearly Everything",
+    "Bill Bryson",
+    "9780767908184",
+    "Science"
+  ],
+  [
+    "The Immortal Life of Henrietta Lacks",
+    "Rebecca Skloot",
+    "9781400052189",
+    "Science"
+  ],
+  [
+    "The Sixth Extinction",
+    "Elizabeth Kolbert",
+    "9781250062185",
+    "Science"
+  ],
+  [
+    "Silent Spring",
+    "Rachel Carson",
+    "9780618249060",
+    "Environment"
+  ],
+  [
+    "The Hidden Life of Trees",
+    "Peter Wohlleben",
+    "9781771642484",
+    "Environment"
+  ],
+  [
+    "Guns, Germs, and Steel",
+    "Jared Diamond",
+    "9780393354324",
+    "History"
+  ],
+  [
+    "India After Gandhi",
+    "Ramachandra Guha",
+    "9780060198817",
+    "History"
+  ],
+  [
+    "The Discovery of India",
+    "Jawaharlal Nehru",
+    "9780143031031",
+    "History"
+  ],
+  [
+    "The Argumentative Indian",
+    "Amartya Sen",
+    "9780141012117",
+    "History"
+  ],
+  [
+    "The White Tiger",
+    "Aravind Adiga",
+    "9781416562603",
+    "Fiction"
+  ],
+  [
+    "The God of Small Things",
+    "Arundhati Roy",
+    "9780812979657",
+    "Fiction"
+  ],
+  [
+    "Train to Pakistan",
+    "Khushwant Singh",
+    "9780143065883",
+    "Fiction"
+  ],
+  [
+    "Malgudi Days",
+    "R. K. Narayan",
+    "9788185986172",
+    "Fiction"
+  ],
+  [
+    "The Guide",
+    "R. K. Narayan",
+    "9780143039648",
+    "Fiction"
+  ],
+  [
+    "Midnight's Children",
+    "Salman Rushdie",
+    "9780812976533",
+    "Fiction"
+  ],
+  [
+    "The Palace of Illusions",
+    "Chitra Banerjee Divakaruni",
+    "9781400096893",
+    "Fiction"
+  ],
+  [
+    "The Namesake",
+    "Jhumpa Lahiri",
+    "9780618485222",
+    "Fiction"
+  ],
+  [
+    "Interpreter of Maladies",
+    "Jhumpa Lahiri",
+    "9780395927205",
+    "Fiction"
+  ],
+  [
+    "The Blue Umbrella",
+    "Ruskin Bond",
+    "9788171673407",
+    "Fiction"
+  ],
+  [
+    "The Room on the Roof",
+    "Ruskin Bond",
+    "9780143333389",
+    "Fiction"
+  ],
+  [
+    "The Complete Stories",
+    "Rabindranath Tagore",
+    "9780140448069",
+    "Fiction"
+  ],
+  [
+    "Gitanjali",
+    "Rabindranath Tagore",
+    "9780143039648",
+    "Poetry"
+  ],
+  [
+    "The Republic",
+    "Plato",
+    "9780140449143",
+    "Philosophy"
+  ],
+  [
+    "Meditations",
+    "Marcus Aurelius",
+    "9780812968255",
+    "Philosophy"
+  ],
+  [
+    "The Art of War",
+    "Sun Tzu",
+    "9781590302255",
+    "Philosophy"
+  ],
+  [
+    "Letters from a Stoic",
+    "Seneca",
+    "9780140442106",
+    "Philosophy"
+  ],
+  [
+    "The Little Prince",
+    "Antoine de Saint-Exupéry",
+    "9780156012195",
+    "Fiction"
+  ],
+  [
+    "Charlotte's Web",
+    "E. B. White",
+    "9780064400558",
+    "Children"
+  ],
+  [
+    "Matilda",
+    "Roald Dahl",
+    "9780142410370",
+    "Children"
+  ],
+  [
+    "The Adventures of Tom Sawyer",
+    "Mark Twain",
+    "9780486400778",
+    "Children"
+  ]
+];
+const expandedSampleBooks:Book[]=[...sampleBooks,...additionalBookData.map(([title,author,isbn,category],i)=>({id:'seed-'+String(i+6).padStart(3,'0'),title,author,isbn,category,status:'Available' as Status,memberId:'',dueDate:'',coverUrl:'https://covers.openlibrary.org/b/isbn/'+isbn+'-M.jpg'}))];
+const CATALOG_SEED_KEY='libraryhub.catalog-seeded.v1';
 const sampleMembers:Member[]=[
 {id:'m1',name:'Aarav Sharma',email:'aarav@example.com',phone:'',joinedAt:'2026-09-10',studentId:'CSE2026001',department:'Computer Science',program:'B.Tech'},
 {id:'m2',name:'Priya Reddy',email:'priya@example.com',phone:'',joinedAt:'2026-09-12',studentId:'ECE2026002',department:'Electronics',program:'B.Tech'},
@@ -27,6 +601,7 @@ function isOverdue(b:Book){return b.status==='Issued'&&!!b.dueDate&&b.dueDate<ne
 function id(){return globalThis.crypto?.randomUUID?.()??String(Date.now())+Math.random().toString(36).slice(2);}
 export default function App(){
  const [books,setBooks]=useState<Book[]>(()=>read(BOOKS_KEY,[]));
+ useEffect(()=>{try{if(localStorage.getItem(CATALOG_SEED_KEY)!=='yes'){const current=read<Book[]>(BOOKS_KEY,[]);const known=new Set(current.map(b=>b.id));const seeded=expandedSampleBooks.filter(b=>!known.has(b.id));if(current.length===0){setBooks(expandedSampleBooks);}else if(seeded.length){setBooks([...current,...seeded]);}localStorage.setItem(CATALOG_SEED_KEY,'yes');}}catch{}},[]);
  const [members,setMembers]=useState<Member[]>(()=>read(MEMBERS_KEY,[]));
  const [dark,setDark]=useState<boolean>(()=>read(THEME_KEY,false));
  const [signedIn,setSignedIn]=useState<boolean>(()=>false);
