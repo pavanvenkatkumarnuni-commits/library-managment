@@ -394,3 +394,12 @@ body{background:var(--page);font-family:'DM Sans',Inter,system-ui,sans-serif}
 @media(max-width:780px){.layout .hero-art{right:-14px;opacity:.42}.layout .dashboard-hero{padding:24px 22px}}
 @media(max-width:480px){.layout .dashboard-hero{min-height:220px;padding:22px 18px}.layout .hero-art{right:-50px;opacity:.23}.layout .dashboard-hero-copy{max-width:100%}.layout .dashboard-hero p{max-width:270px}}
 @media(prefers-reduced-motion:reduce){.layout .hero-orbit,.layout .hero-book,.layout .hero-spark{animation:none!important}}
+
+/* Workspace notification popover actions and empty state */
+.notification-symbol{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:var(--page,#f4f7fc);color:var(--accent,#7650e8)}
+.notification-warning{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:#fff1dc}
+.notification-empty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:26px 20px}
+.notification-empty b{color:var(--text,#263246)}
+.notification-empty small{max-width:230px;line-height:1.5}
+.notification-foot{display:flex;justify-content:space-between;gap:12px;padding:12px 14px}
+.notification-foot button{border:0;background:transparent;color:var(--accent,#7650e8);font:inherit;font-size:11px;font-weight:700;cursor:pointer}
